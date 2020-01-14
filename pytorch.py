@@ -28,7 +28,7 @@ data_y = torch.zeros(len(li_y),data_length).scatter_(1, torch.tensor(li_y).unsqu
 #----------------------------------------------------------------------------------------------------------
 #定义网络模型
 class net(nn.Module):
-    def__init__(self, input_size,output_size,num_layer):
+    def__init__(self,input_size,hidden_size,output_size,num_layer):
         super(net, self).__init__()
         self.layer1 = nn.LSTM(input_size, hidden_size, num_layer)
         self.layer2 = nn.Linear(hidden_size, output_size)
@@ -47,7 +47,7 @@ model = net(seq_length, 32, data_length, 4)
 #---------------------------------------------------------------------------------------
 #定义损失函数和优化器
 loss_fun = nn.MSELoss()
-optimizer = touch.optim.Adam(model.parameters(), lr=0.01)
+optimizer = touch.optim.Adam(model.parameters(),lr=0.01)
 
 #----------------------------------------------------------------------------------------
 #训练模型
@@ -59,7 +59,7 @@ for _ in range(500):
     optimizer.step()
     
     if (_ + 1)%50 == 0:
-        print('Epoch:{}, Loss:{}.format(_, loss_data))
+        print('Epoch:{}, Loss:{}'.format(_, loss_data))
         
 #------------------------------------------------------------------------------------
 #预测结果
