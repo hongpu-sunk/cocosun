@@ -22,7 +22,7 @@ for i in range(0, data_length - seq_length):
 data_x = numpy.reshape(li_x,(len(li_x),1,seq_length))
 data_x = torch.from_numpy(data_x / float(data_length)).float()
 #将输入数据进行归一化
-data_y = torch.zeros(len(li_y),data_length).scatter_(1, torch.tensor(li_y).unsqueeze_(dim=1, 1).float()
+data_y = torch.zeros(len(li_y),data_length).scatter_(1, torch.tensor(li_y).unsqueeze_(dim=1), 1).float()
 
 
 #----------------------------------------------------------------------------------------------------------
