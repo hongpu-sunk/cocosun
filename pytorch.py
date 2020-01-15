@@ -38,8 +38,8 @@ class net(nn.Module):
         x,_ = self.layer1(x)
         sample, batch, hidden = x.size()
         x = x.reshape(-1,hidden)
-        x.self.layer2(x)
-        x.self.layer3(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
         return x
 
 model = net(seq_length, 32, data_length, 4)
@@ -59,7 +59,7 @@ for _ in range(500):
     optimizer.step()
     
     if (_ + 1)%50 == 0:
-        print('Epoch:{}, Loss:{}'.format(_, loss_data))
+        print('Epoch:{}, Loss:{}'.format(_, loss.data))
         
 #------------------------------------------------------------------------------------
 #预测结果
