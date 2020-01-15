@@ -32,7 +32,7 @@ class net(nn.Module):
         super(net, self).__init__()
         self.layer1 = nn.LSTM(input_size, hidden_size, num_layer)
         self.layer2 = nn.Linear(hidden_size, output_size)
-        self.layer3 = nn.softmax()
+        self.layer3 = nn.Softmax()
         
     def forward(self,x):
         x,_ = self.layer1(x)
@@ -47,7 +47,7 @@ model = net(seq_length, 32, data_length, 4)
 #---------------------------------------------------------------------------------------
 #定义损失函数和优化器
 loss_fun = nn.MSELoss()
-optimizer = touch.optim.Adam(model.parameters(),lr=0.01)
+optimizer = torch.optim.Adam(model.parameters(),lr=0.01)
 
 #----------------------------------------------------------------------------------------
 #训练模型
@@ -66,7 +66,6 @@ for _ in range(500):
 result = model(data_x)
 for target, pred in zip(data_y, result):
     print("正确结果：{}, 预测：{}".format(target.argmax().data, pred.argmax().data))
-        
         
         
         
