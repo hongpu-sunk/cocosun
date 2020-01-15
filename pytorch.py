@@ -65,7 +65,7 @@ for _ in range(500):
 #预测结果
 result = model(data_x)
 for target, pred in zip(data_y, result):
-    print("正确结果：{}, 预测：{}".format(target.argmax().data, pred.argmax().data))
+    print("accurate result：{}, predict：{}".format(target.argmax().data, pred.argmax().data))
         
         
         
