@@ -1,4 +1,4 @@
-Learn more or give us feedback
+#Learn more or give us feedback
 # Copyright (c) Microsoft Corporation
 # All rights reserved. 
 #
